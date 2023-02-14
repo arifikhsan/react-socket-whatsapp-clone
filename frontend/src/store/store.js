@@ -4,7 +4,8 @@ import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
 import thunk from 'redux-thunk';
 import contactSlice from './contactSlice';
-import { activeConversationSlice } from './activeConversationSlice';
+import conversationSlice from './conversationSlice'
+import activeConversationSlice from './activeConversationSlice'
 
 const persistConfig = {
   key: 'root',
@@ -14,11 +15,13 @@ const persistConfig = {
 const rootReducer = combineReducers({
   identity: identitySlice,
   contact: contactSlice,
-  activeConversation: activeConversationSlice
+  conversationSlice,
+  activeConversationSlice
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
+  // reducer: rootReducer,
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== 'production',
   middleware: [thunk]

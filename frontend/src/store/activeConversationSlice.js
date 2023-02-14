@@ -1,36 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 let initialState = {
-  value: [],
+  conversation: null,
 };
 
 export const activeConversationSlice = createSlice({
-  name: 'activeConversation',
+  name: 'activeConversationSlice',
   initialState,
   reducers: {
-    addContactToConversation: (state, action) => {
-      state.value = [...state.value, action.payload];
+    setConversation: (state, action) => {
+      state.conversation = action.payload;
     },
-    deleteContactFromConversation: (state, action) => {
-      state.value = state.value.filter(
-        (contact) => contact.id != action.payload
-      );
-    },
-    deleteAllActiveConversactionContacts: (state) => {
-      state.value = [];
+    deleteConversation: (state) => {
+      state.conversation = null;
     },
   },
 });
 
-export const getActiveConversationContacts = (state) => {
-  console.log(state);
-  return [];
+export const getActiveConversation = (state) => {
+  return state.activeConversationSlice.conversation;
 };
 
-export const {
-  addContactToConversation,
-  deleteContactFromConversation,
-  deleteAllActiveConversactionContacts,
-} = activeConversationSlice.actions;
+export const { setConversation, deleteConversation } = activeConversationSlice.actions;
 
 export default activeConversationSlice.reducer;

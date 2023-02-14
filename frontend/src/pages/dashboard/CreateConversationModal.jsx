@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactToConversation, deleteAllActiveConversactionContacts } from '../../store/activeConversationSlice';
 import { getContacts } from '../../store/contactSlice';
+import {
+  addConversation,
+  deleteConversations,
+} from '../../store/conversationSlice';
 
 export default function CreateConversationModal({ onClose }) {
   const dispatch = useDispatch();
   const [selectedContacts, setSelectedContacts] = useState([]);
   const contacts = useSelector(getContacts);
 
-  console.log(selectedContacts);
   const onCreate = (e) => {
     e.preventDefault();
-    console.log(selectedContacts);
-    dispatch(deleteAllActiveConversactionContacts())
-    dispatch(addContactToConversation(selectedContacts))
+    console.log(selectedContacts)
+    dispatch(deleteConversations());
+    dispatch(addConversation(selectedContacts));
     onClose();
   };
 

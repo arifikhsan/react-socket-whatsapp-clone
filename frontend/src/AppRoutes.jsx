@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
+import ChatRoomPage from './pages/ChatRoomPage';
 import DashboardPage from './pages/DashboardPage';
 import IndexPage from './pages/IndexPage';
 import LoginPage from './pages/LoginPage';
@@ -12,6 +13,7 @@ export default function AppRoutes() {
         <Route index element={<IndexPage />} />
         <Route path='login' element={<LoginPage />} />
         <Route path='dashboard' element={<DashboardPage />} />
+        <Route path='chat/:conversationId' element={<ChatRoomPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>
