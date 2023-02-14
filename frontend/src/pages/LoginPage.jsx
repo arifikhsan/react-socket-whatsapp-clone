@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { getId, updateId } from '../store/identitySlice';
 
 export default function LoginPage() {
   const [id, setId] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const savedId = useSelector(getId);
 
   useEffect(() => {
@@ -17,6 +19,7 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateId(id));
+    navigate('/dashboard')
   };
 
   const generateId = () => {

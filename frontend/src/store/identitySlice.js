@@ -10,7 +10,6 @@ export const identitySlice = createSlice({
   reducers: {
     updateId: (state, action) => {
       state.id = action.payload;
-      console.log(state.id)
     },
     deleteId: (state) => {
       state.id = null;

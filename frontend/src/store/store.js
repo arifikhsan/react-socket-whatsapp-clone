@@ -3,6 +3,8 @@ import identitySlice from './identitySlice';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
 import thunk from 'redux-thunk';
+import contactSlice from './contactSlice';
+import { activeConversationSlice } from './activeConversationSlice';
 
 const persistConfig = {
   key: 'root',
@@ -11,6 +13,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   identity: identitySlice,
+  contact: contactSlice,
+  activeConversation: activeConversationSlice
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

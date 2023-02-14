@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <div>
       <HeaderComponent />
-      <div className='max-w-3xl mx-auto px-4 py-8'>
+      <div className='max-w-3xl mx-auto px-4 pt-2 pb-8'>
         <Outlet />
       </div>
       <FooterComponent />

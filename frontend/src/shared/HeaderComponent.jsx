@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { deleteId, getId } from '../store/identitySlice';
 
 export default function HeaderComponent() {
   const id = useSelector(getId);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const logout = () => {
     dispatch(deleteId());
+    navigate('/')
   };
 
   return (
