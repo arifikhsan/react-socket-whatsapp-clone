@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import contactSlice from './contactSlice';
 import conversationSlice from './conversationSlice'
 import activeConversationSlice from './activeConversationSlice'
+import chatSlice from './chatSlice'
 
 const persistConfig = {
   key: 'root',
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   identity: identitySlice,
   contact: contactSlice,
   conversationSlice,
-  activeConversationSlice
+  activeConversationSlice,
+  chatSlice,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

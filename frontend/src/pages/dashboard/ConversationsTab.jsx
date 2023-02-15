@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  deleteConversation,
-  getActiveConversation,
-  setConversation,
-} from '../../store/activeConversationSlice';
 import { getConversations } from '../../store/conversationSlice';
-import ChatRoomComponent from './chat/chatRoomComponent';
 import CreateConversationModal from './CreateConversationModal';
 
 export default function ConversationsTab() {
